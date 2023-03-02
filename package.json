@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-misaon",
-  "version": "1.O.0",
+  "version": "0.0.1",
   "description": "ESLint config for my projects",
   "repository": "@misaon/eslint-config",
   "license": "MIT",

@@ -1,5 +1,17 @@
+const baseExtends = [
+    'plugin:unicorn/all',
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+]
+
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {
+    env: {
+        browser: true,
+        node: true,
+    },
     settings: {
         "import/resolver": {
             node: { extensions: [".js", ".mjs", ".cjs"] },
@@ -9,11 +21,7 @@ module.exports = {
     extends: [
         "prettier",
         "xo",
-        'plugin:unicorn/all',
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
+        ...baseExtends,
     ],
     rules: {
         /**
@@ -43,11 +51,7 @@ module.exports = {
                 "prettier",
                 "xo",
                 "xo-typescript",
-                'plugin:unicorn/all',
-                "plugin:@typescript-eslint/recommended",
-                "plugin:@typescript-eslint/eslint-recommended",
-                "plugin:import/errors",
-                "plugin:import/warnings",
+                ...baseExtends,
             ],
         },
     ],
