@@ -6,6 +6,32 @@ const baseExtends = [
     "plugin:import/warnings",
 ]
 
+const baseRules = {
+    /**
+     * Override some ESLint rules
+     */
+    'capitalized-comments': 'off',
+    'prefer-template': 'error',
+    'no-console': 'error',
+    'newline-before-return': 'error',
+    'object-curly-spacing': [
+        'error',
+        'always'
+    ],
+
+    /**
+     * Override some Import plugin rules
+     */
+    'import/first': 'error',
+    'import/no-mutable-exports': 'error',
+    'import/newline-after-import': 'error',
+
+    /**
+     * Override some Unicorn rules
+     */
+    'unicorn/filename-case': 'off',
+}
+
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {
     env: {
@@ -14,7 +40,7 @@ module.exports = {
     },
     settings: {
         "import/resolver": {
-            node: { extensions: [".js", ".mjs", ".cjs"] },
+            node: {extensions: [".js", ".mjs", ".cjs"]},
             typescript: {},
         },
     },
@@ -23,27 +49,7 @@ module.exports = {
         "xo",
         ...baseExtends,
     ],
-    rules: {
-        /**
-         * Override some ESLint rules
-         */
-        'capitalized-comments': 'off',
-        'prefer-template': 'error',
-        'no-console': 'error',
-        'newline-before-return': 'error',
-
-        /**
-         * Override some Import plugin rules
-         */
-        'import/first': 'error',
-        'import/no-mutable-exports': 'error',
-        'import/newline-after-import': 'error',
-
-        /**
-         * Override some Unicorn rules
-         */
-        'unicorn/filename-case': 'off',
-    },
+    rules: baseRules,
     overrides: [
         {
             files: '**/*.ts',
@@ -53,6 +59,13 @@ module.exports = {
                 "xo-typescript",
                 ...baseExtends,
             ],
+            rules: {
+                ...baseRules,
+                '@typescript-eslint/object-curly-spacing': [
+                    'error',
+                    'always'
+                ],
+            }
         },
     ],
 };
