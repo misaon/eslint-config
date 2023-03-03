@@ -1,6 +1,6 @@
 # ESLint Config
 
-> Sharable ESLint config for my repositories.
+> wrench Shared ESLint config for my repositories based on XO!
 
 ## License
 
